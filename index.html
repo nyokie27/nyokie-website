@@ -10,6 +10,18 @@
 	hr.dashes{
 		border-top: 3px dashed black
 	}
+	
+	.button-shrink {
+		padding: 0;
+		border: none;
+		background: none;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.button-shrink:hover {
+		transform: scale(0.9);
+	}
 </style>
 
 <center> <h1> <a href="index.html" style="text-decoration:none"><img src="graphics/Sweet_Chips.png" alt="chips" width="40" height="40"> <font size = 10>Nyokie HTML website</font> </a> </h1> <hr> </center>
@@ -24,7 +36,7 @@
 
 <center> <h1> My Hobbies </h1>
 	<section>
-		<h2> <a href="mymusic.html">Music</a> </h3>
+		<h2> <a href="mymusic.html" style="text-decoration:none">Music</a> </h3>
 
 				<p> Sweet Chips [2021]  (My personal favourite! Being used by <a href="https://www.twitch.tv/shiro__nya">Shiro_nya on twitch</a> for background music) </p>
 				<audio controls>
@@ -35,16 +47,16 @@
 	</section>
 	<hr class="dashes">
 	<section>
-		<h3> <a href="graphics.html">Arts and Graphic Design</a> </h3>
-
-			<p> <img src="graphics/Sweet_Chips.png" alt="chips" width="250" height="250"> </p>
+		<h3> <a href="graphics.html" style="text-decoration:none">Arts and Graphic Design</a> </h3>
+				<audio id="sound1" src="audio/chomp.ogg" preload="auto"></audio>
+			<p> <button class="button-shrink" type="button" onclick="document.getElementById('sound1').play();"> <img src="graphics/Sweet_Chips.png" alt="chips" width="250" height="250"> </button></p>
 	</section>
 	<hr class="dashes">
 	<section>
-		<h2> <a href="programming.html">Programming</a> </h3>	
+		<h2> <a href="programming.html" style="text-decoration:none">Programming</a> </h3>	
 			Discord music bot "Nyokie-bot"
 			<p><a href="https://discord.com/oauth2/authorize?client_id=794791551099469824&scope=bot&permissions=70642768">Invite my Discord Bot!</a> </p>
-			<p> <img src="graphics/nyokiebot3.png" alt="nyokieboticon" width="200" height="200"></p>
+			<p><button class="button-shrink" type="button"><a href="https://discord.com/oauth2/authorize?client_id=794791551099469824&scope=bot&permissions=70642768"><img src="graphics/nyokiebot3.png" alt="nyokieboticon" width="200" height="200"></a></button></p>
 			<p><img src="graphics/nyokie_bot_servers_2023.png" alt="nyokiebot" width="600" height="300"> <img src="graphics/nyokie_bot_saved_2023.png" alt="nyokiebot" width="200" height="300"> </p>
 			<p><a href="https://github.com/ZerioDev/Music-bot">Open source code by ZerioDev</a> </p>
 	</section>
@@ -54,7 +66,7 @@
 <hr>
 <center>
 	<h3> I have a ko-fi page for anyone willing to donate or fund my hobbies :D </h3>
-	<a href="https://ko-fi.com/nyokie27"> <img src="graphics/kofi_support.png" alt="kofi" width="800" height="450"> </a>
+	<a href="https://ko-fi.com/nyokie27"> <img src="graphics/kofi_support.png" alt="kofi" width="800" height="450"></a>
 	<hr>
 </center>
 </body>
