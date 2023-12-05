@@ -16,10 +16,10 @@
 		border: none;
 		background: none;
 		cursor: pointer;
-		transition: all 0.3s ease-in-out;
+		transition: all 0.1s ease-in-out;
 	}
 
-	.button-shrink:hover {
+	.button-shrink:active {
 		transform: scale(0.9);
 	}
 </style>
@@ -49,13 +49,24 @@
 	<section>
 		<h3> <a href="graphics.html" style="text-decoration:none">Arts and Graphic Design</a> </h3>
 				<audio id="sound1" src="audio/chomp.ogg" preload="auto"></audio>
-			<p> <button class="button-shrink" type="button" onclick="document.getElementById('sound1').play();"> <img src="graphics/Sweet_Chips.png" alt="chips" width="250" height="250"> </button></p>
+				<script>
+				let audio = document.getElementById('sound1');
+				audio.volume = 0.5;
+				udio.playbackRate = 1.5;
+				
+				function playSound() {
+					audio.currentTime = 0;
+					audio.play();
+					}
+				</script>
+			<p> <button class="button-shrink" type="button" onclick="playSound()"> <img src="graphics/Sweet_Chips.png" alt="chips" width="250" height="250"> </button></p>
 	</section>
 	<hr class="dashes">
 	<section>
 		<h2> <a href="programming.html" style="text-decoration:none">Programming</a> </h3>	
-			Discord music bot "Nyokie-bot"
-			<p><a href="https://discord.com/oauth2/authorize?client_id=794791551099469824&scope=bot&permissions=70642768">Invite my Discord Bot!</a> </p>
+			<p> Discord music bot "Nyokie-bot" </p>
+			<p> Invite my Discord Bot! </p>
+			<p> \/ \/ \/ \/ \/</p>
 			<p><button class="button-shrink" type="button"><a href="https://discord.com/oauth2/authorize?client_id=794791551099469824&scope=bot&permissions=70642768"><img src="graphics/nyokiebot3.png" alt="nyokieboticon" width="200" height="200"></a></button></p>
 			<p><img src="graphics/nyokie_bot_servers_2023.png" alt="nyokiebot" width="600" height="300"> <img src="graphics/nyokie_bot_saved_2023.png" alt="nyokiebot" width="200" height="300"> </p>
 			<p><a href="https://github.com/ZerioDev/Music-bot">Open source code by ZerioDev</a> </p>
