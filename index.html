@@ -42,7 +42,7 @@
 		padding: 1rem 1rem;
 		vertical-align:middle;
 		text-align: right;
-		width:40%;
+		width:20%;
 	}
 	.child2{
 		display:inline-block;
@@ -112,46 +112,44 @@
 						audio.play();
 						}
 					</script>
-				<p> <button class="button-shrink" type="button" onclick="playSound()"> <img src="graphics/Sweet_Chips.png" alt="chips" width="300" height="300"> </button></p>
+				<p> <button class="button-shrink" type="button" onclick="playSound()"> <img src="graphics/Sweet_Chips.png" alt="chips" width=100%> </button></p>
+				<hr>
+				<center>
+					<h3>
+						<p>Today is:</p>
+						<p id="dateandtime"></p>
+					</h3>
+					<script>
+						const d = new Date();
+						document.getElementById("dateandtime").innerHTML = d.toDateString();
+					</script>
+					<hr>
+					<p><a href="links.html" style="text-decoration:none">Affiliated Links</a></p>	
+				</center>
 
 
 			</div>
 			<div class='child2'>
 				<ul>
-					<p><img src="graphics/nyokie_website_title.png" alt="banner" width=300 height=100></p>
-					<p><a href="about.html" style="text-decoration:none"><h2>About Me</h2></a></p>
+					<p><img src="graphics/nyokie_website_title.png" alt="banner" width=100%></p>
+					<p><a href="about.html" style="text-decoration:none"><img src="graphics/banners/about_me_banner.gif" alt="banner" width="100%"></a></p>
 					<p><h2>My Hobbies:</h2></p>
-					<li><p><a href="mymusic.html" style="text-decoration:none">Music</a></p></li>
-					<li><p><a href="graphics.html" style="text-decoration:none">Arts and Graphics</a></p></li>
-					<li><p><a href="programming.html" style="text-decoration:none">Programming</a></p></li><br>
-					<p><a href="links.html" style="text-decoration:none">Links</a></p>
+					<p><a href="mymusic.html" style="text-decoration:none"><img src="graphics/banners/my_music_banner.gif" alt="banner" width="100%"></a></p>
+					<p><a href="graphics.html" style="text-decoration:none"><img src="graphics/banners/graphics_banner.png" alt="banner" width="100%"></a></p>
+					<p><a href="programming.html" style="text-decoration:none"><img src="graphics/banners/Programming_stuff_banner.gif" alt="banner" width="100%"></a></p><br>
 				</ul>
 			</div>
 		</div>
 </div>
-<section>
-	<h3>
-		<p>Today is:</p>
-		<p id="dateandtime"></p>
-	</h3>
-	<script>
-		const d = new Date();
-		document.getElementById("dateandtime").innerHTML = d.toDateString();
-	</script>
-</section>
+
 <hr>
 <section>
-		<p> Discord music bot "Nyokie-bot" </p>
-		Invite my Discord Bot!<br>
-		\/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-		<p><button class="button-shrink" type="button"><a href="https://discord.com/oauth2/authorize?client_id=794791551099469824&scope=bot&permissions=70642768"><img src="graphics/nyokiebot3.png" alt="nyokieboticon" width="150" height="150"></a></button></p>
-		<p><a href="https://github.com/ZerioDev/Music-bot">Open source code by ZerioDev</a> </p>
+		<p>
+			<a href="https://discord.com/oauth2/authorize?client_id=794791551099469824&scope=bot&permissions=70642768"><img src="graphics/banners/nyokie_bot_banner.gif" width=40%></a>
+			<a href="https://ko-fi.com/nyokie27"> <img src="graphics/banners/Ko-fi_baner.png" width="40%"></a>
+		</p>
+		<p><a href="https://github.com/ZerioDev/Music-bot">Music Bot Open source code by ZerioDev</a> </p>
 </section>
-<br>
-<hr>
-<h3> I have a ko-fi page for anyone willing to donate or fund my hobbies :D </h3>
-<a href="https://ko-fi.com/nyokie27"> <img src="graphics/kofi_support.png" alt="kofi" width="50%" height="50%"></a>
-<hr>
 </center>
 </div>
 </body>
