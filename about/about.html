@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nyokie Website</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>
+	body { /*body*/
+		margin: 0;
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: white;
+	}
+	hr.dashes{
+		border-top: 3px dashed black
+	}
+	.button-shrink {
+		padding: 0;
+		border: none;
+		background: none;
+		cursor: pointer;
+		transition: all 0.1s ease-in-out;
+	}
+	.button-shrink:active {
+		transform: scale(0.9);
+	}
+	/*these are for boxes*/
+	.box{
+		width:100%;
+		padding:20px;
+		margin:20px;
+	}
+	.parent{
+		border:1px; /*solid black;*/
+		margin: 1rem;
+		padding: 1rem 1rem;
+	}
+	.child1{
+		display:inline-block;
+		border: 1px; /*solid red;*/
+		padding: 1rem 1rem;
+		vertical-align:middle;
+		text-align: right;
+		width:40%;
+	}
+	.child2{
+		display:inline-block;
+		border: 1px; /*solid red;*/
+		padding: 1rem 1rem;
+		vertical-align:middle;
+		text-align: leftt;
+		width:40%;
+	}/*box ends here*/
+	/*Menu Bar navigation*/
+	.navbar{
+		overflow:hidden;
+		background-color:#444;
+		position:fixed;
+		top:0;
+		width:100%;
+	}
+	.navbar a{
+		display:inline-block;
+		color:white;
+		text-align: center;
+  		padding: 14px 16px;
+  		text-decoration: none;
+  		font-size: 15px;
+	}
+	.navbar a:hover {
+		background-color: #ddd;
+		color: black;
+	}
+	.navbar a.active {
+		background-color: #833;
+		color: white;
+	}
+	.main{
+		padding:16px;
+		margin-top:30px;
+	}
+</style>
+
+</head>
+<body>
+<font color=black>
+	<div class="navbar">
+		<center>
+			<a href="../index.html">Home</a>
+			<a class="active" href="about/about.html">About</a>
+			<a href="../music/mymusic.html">Music</a>
+			<a href="../arts and graphics/graphics.html">Arts and Graphics</a>
+			<a href="../programming/programming.html">Programming</a>
+			<a href="../links/links.html">Links</a>
+		</center>
+	</div>
+	
+<div class="main">
+    <div class="parent">
+        <div class="child1">
+            <img src="graphics/callsign11_eyes.jpg"alt="nyokieboticon" width="150" height="150"></a>
+        </div>
+        <div class="child2">
+            <h2> Online, I go by the name of Nyokie. </h2> 
+            <p> Pronunciation varies but oftentimes pronounced as "knee-oh-key" or "nigh-oh-key". </p>
+	    <p> People I know personally call me John or JC other than Nyokie. </p>
+            <p> I am a 19 year old Filipino college student residing in the Philippines. I also have a bunch of hobbies.</p> 
+
+            <p> <a href="../music/mymusic.html" style="text-decoration:none"> I started producing music around late 2019</a> when I tried using <a href="https://auxy.co/" style="text-decoration:none">Auxy </a> on my iPhone,
+			since then I tinkered with the app with no prior knowledge about music production, let alone music theory. Only in mid 2020 when I joined a community
+			that encouraged all forms of arts and hobbies did I further expand my understanding and knowledge with music production.
+			Since then I had a newfound passion for music. I can play various instruments such as the guitar, keyboard, percussions / drums and woodwind and reeds.
+			I had only been playing the recorder for years and a harmonica, but I eventually turned to my old guitar to relearn it and an old piano in my home.
+			As of december 2023 I am a proud owner of <a href="electric-guitar.html" style="text-decoration:none"> my Stratocaster</a>, an electric guitar which I have modified a lot of
+			times to fulfil my urges and personal taste.</p>
+			
+			<p> <a href="../arts and graphics/graphics.html" style="text-decoration:none"> As for arts</a>, I also tried my hand at sketching around early 2020. My only previous experience with freehand drawing was from tracing images,
+			but with time and confidence, I finally learned how to produce sketches I could be proud of.</p>
+
+			<p>My programming experience dates back to 2017 where in I was invited to join my junior high school's robotics club. Ive participated in multiple 
+			competitions locally and even submitting my papers to a competition overseas. There was no quitting the club for me since I really enjoyed the
+			work I did. Around 2019, I put my programming experience from robotics club to the test by making a discord music bot as a side project leading to the development
+			and hosting of my music bot "nyokie bot".</p>
+
+			<p>As of 2023, I have enrolled myself in the Bachelor of Science in Information Technology. Surely I could further improve my current skills.</p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
