@@ -155,7 +155,7 @@ function drawPoint(point, color) {
 function calculate() {
     if (pointA && pointB) {
         let distanceMeters = Math.sqrt(Math.pow(pointB.x - pointA.x, 2) + Math.pow(pointB.y - pointA.y, 2)) * mapScale / tileSize;
-        let distanceStuds = distanceMeters * 3; // 1 meter = 3 studs
+        let distanceStuds = distanceMeters * (5/1.8); // 1 meter = 3 studs?
         let dx = pointB.x - pointA.x;
         let dy = pointB.y - pointA.y;
         let azimuth = 180 - Math.atan2(dx, dy) * 180 / Math.PI;
@@ -163,25 +163,28 @@ function calculate() {
         let velocity = parseFloat(document.getElementById("velocity").value);
         let gravity = 9.81; // m/s^2
 
-        let directAngle = Math.atan((distanceMeters / (velocity * velocity)) * gravity) * 180 / Math.PI;
-        let indirectAngle = -(Math.atan((distanceMeters / (velocity * velocity)) * gravity) * 180 / Math.PI) + 90;
+        let directAngle = Math.asin((distanceMeters / (velocity * velocity)) * gravity) * 180 / Math.PI;
+        let indirectAngle = -(Math.asin((distanceMeters / (velocity * velocity)) * gravity) * 180 / Math.PI) + 90;
 
         if (azimuth < 0) {
             azimuth += 360;
         } else if (azimuth > 360) {
             azimuth -= 360;
         }
-
-        //Calculate time for direct trajectory
+		
+		//Time calculations
         let directTime = (2 * velocity * Math.sin(directAngle * Math.PI / 180)) / gravity;
-        
-        //Calculate time for indirect trajectory
         let indirectTime = (2 * velocity * Math.sin(indirectAngle * Math.PI / 180)) / gravity;
+		
+		//Max Range
+		let theta = 45 * Math.PI / 180; 
+		let maxRange = ((velocity * velocity)* (2 * Math.sin(theta) * Math.cos(theta))) / gravity;
         
         document.getElementById("distance-label").innerHTML = "" + distanceMeters.toFixed(2) + " meters (" + distanceStuds.toFixed(2) + " studs)";
         document.getElementById("azimuth-label").innerHTML = "" + azimuth.toFixed(2) + " degrees";
         document.getElementById("direct-angle-label").innerHTML = "" + directAngle.toFixed(2) + " degrees" + "  (" + directTime.toFixed(2) + " seconds)";
         document.getElementById("indirect-angle-label").innerHTML = "" + indirectAngle.toFixed(2) + " degrees" + "  (" + indirectTime.toFixed(2) + " seconds)";
+		document.getElementById("max-range-label").innerHTML = "" + maxRange.toFixed(2) + "meters";
     }
 }
 
