@@ -7,6 +7,7 @@ let pointB = null;
 document.getElementById("set-grid-button").addEventListener("click", setGrid);
 document.getElementById("reset-a-button").addEventListener("click", resetA);
 document.getElementById("reset-b-button").addEventListener("click", resetB);
+document.getElementById("convert-studs").addEventListener("click", convert_studs);
 
 document.getElementById("grid").addEventListener("mousemove", function(event) { //Mouse event listener, show cursor position on grid
     let x = event.offsetX;
@@ -36,7 +37,7 @@ document.getElementById("grid").addEventListener("click", function(event) { //Mo
 
 function setGrid() {
     gridSize = parseInt(document.getElementById("grid-size").value);
-    mapScale = parseInt(document.getElementById("map-scale").value);
+    mapScale = parseFloat(document.getElementById("map-scale").value);
     document.getElementById("grid").style.width = gridSize * tileSize + "px";
     document.getElementById("grid").style.height = gridSize * tileSize + "px";
     document.getElementById("grid").innerHTML = "";
@@ -54,6 +55,12 @@ function resetB() {
     pointB = null;
     document.getElementById("grid").innerHTML = "";
     drawGrid();
+}
+
+function convert_studs() {
+	let studs = parseFloat(document.getElementById("studs").value);
+	let convertion = studs / (5 / 1.8);
+	document.getElementById("studs-to-meters").innerHTML = " " + convertion + " meters";
 }
 
 function drawGrid() {
@@ -154,17 +161,21 @@ function drawPoint(point, color) {
 */
 function calculate() {
     if (pointA && pointB) {
-        let distanceMeters = Math.sqrt(Math.pow(pointB.x - pointA.x, 2) + Math.pow(pointB.y - pointA.y, 2)) * mapScale / tileSize;
+		let distanceMeters = Math.sqrt(Math.pow(pointB.x - pointA.x, 2) + Math.pow(pointB.y - pointA.y, 2)) * mapScale / tileSize;
         let distanceStuds = distanceMeters * (5/1.8); // 1 meter = 3 studs?
         let dx = pointB.x - pointA.x;
         let dy = pointB.y - pointA.y;
         let azimuth = 180 - Math.atan2(dx, dy) * 180 / Math.PI;
+		let initialHeight = 0;
 
         let velocity = parseFloat(document.getElementById("velocity").value);
-        let gravity = 9.81; // m/s^2
-
-        let directAngle = Math.asin((distanceMeters / (velocity * velocity)) * gravity) * 180 / Math.PI;
-        let indirectAngle = -(Math.asin((distanceMeters / (velocity * velocity)) * gravity) * 180 / Math.PI) + 90;
+        //let gravity = 9.81; // m/s^2
+		let gravity = 9.8 * 1.8
+		
+		let indirectAngle = Math.atan(
+			(velocity ** 2 + Math.sqrt(velocity ** 4 - gravity * (gravity * distanceMeters ** 2 + 2 * initialHeight * velocity ** 2))) / (gravity * distanceMeters)
+		) * (180 / Math.PI);
+		let directAngle = (90 - indirectAngle);
 
         if (azimuth < 0) {
             azimuth += 360;
@@ -178,7 +189,7 @@ function calculate() {
 		
 		//Max Range
 		let theta = 45 * Math.PI / 180; 
-		let maxRange = ((velocity * velocity)* (2 * Math.sin(theta) * Math.cos(theta))) / gravity;
+		let maxRange = (velocity ** 2)* (2 * Math.sin(theta) * Math.cos(theta)) / gravity;
         
         document.getElementById("distance-label").innerHTML = "" + distanceMeters.toFixed(2) + " meters (" + distanceStuds.toFixed(2) + " studs)";
         document.getElementById("azimuth-label").innerHTML = "" + azimuth.toFixed(2) + " degrees";
